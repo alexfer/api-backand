@@ -15,13 +15,11 @@ class Kernel extends HttpKernel
      * @var array<int, class-string|string>
      */
     protected $routeMiddleware = [
-        'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'auth' => \Illuminate\Auth\Middleware\Authenticate::class,        
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'basicAuth' => \App\Http\Middleware\BasicAuth::class
     ];
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,

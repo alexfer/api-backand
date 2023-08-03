@@ -11,14 +11,15 @@
   |
  */
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ApiController;
 
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
-    $router->get('/', 'IndexController@index');
+    $router->get('/', 'App\Http\Controllers\AdminController@index');
+    $router->post('login', [ApiController::class => 'login'])->name('login');
 
-    Route::group(['middleware' => ['auth.basic']], function () {
-        Route::get('/users', [AdminController::class, 'index'])->name('users');
-        Route::get('/user/{id}', [AdminController::class, 'details'])->name('user');
+    Route::middleware('auth:api')->group(function () {
+        Route::get('/users', [ApiController::class, 'index'])->name('users');
+        Route::get('/user/{id}', [ApiController::class, 'details'])->name('user');
     });
     //$router->get('/users', [
     //    'middleware' => 'auth.basic',
