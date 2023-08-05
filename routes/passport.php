@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Http\Controllers\AccessTokenController;
 
 Route::post('/token', [
-    'uses' => [AccessTokenController::class, 'issueToken'],
+    'uses' => 'Laravel\Passport\Http\Controllers\AccessTokenController@issueToken',
     'as' => 'token',
     'middleware' => 'throttle',
 ]);

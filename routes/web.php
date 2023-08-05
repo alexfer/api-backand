@@ -17,6 +17,3 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-use Laravel\Passport\Http\Controllers\AccessTokenController;
-
-Route::post('/token', [AccessTokenController::class, 'issueToken']);
