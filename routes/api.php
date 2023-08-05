@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,7 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware'  =>  'auth:api'], function () {
-    Route::get('/user', function () {
-        return response()->json(['user' => 'user']);
-    });
+    Route::get('/user', 'App\Http\Controllers\Api\UserController@index');
 });
