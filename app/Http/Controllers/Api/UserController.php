@@ -8,10 +8,26 @@ use App\Models\User;
 class UserController extends BaseController
 {
 
-    public function index()
+    /**
+     * 
+     * @return object
+     */
+    public function index(): object
     {
         return response()->json([
                     'items' => User::all(),
+        ]);
+    }
+
+    /**
+     * 
+     * @param int $id
+     * @return object
+     */
+    public function details(int $id): object
+    {
+        return response()->json([
+                    'item' => User::where('id', $id)->first(),
         ]);
     }
 }
