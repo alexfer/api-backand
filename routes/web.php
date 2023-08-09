@@ -22,7 +22,8 @@ Route::get('/register', 'App\Http\Controllers\Web\UserDashboardController@regist
 Route::post('/store', 'App\Http\Controllers\Web\UserDashboardController@store')->name('auth.web.store');
 
 Route::group(['middleware' => 'auth:web'], function () {
-    
+    Route::get('/update', 'App\Http\Controllers\Web\ProfileController@profile')->name('profile.web.profile');
+    Route::patch('/update', 'App\Http\Controllers\Web\ProfileController@update')->name('profile.web.update');
 });
 
 Route::group(['middleware' => 'auth:api'], function () {

@@ -26,10 +26,10 @@
                 @else    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->email }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profile.web.profile') }}">Profile</a></li>
                         <li><a class="dropdown-item" href="{{ route('auth.web.logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
