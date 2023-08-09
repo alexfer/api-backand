@@ -21,6 +21,10 @@ Route::post('/authenticate', 'App\Http\Controllers\Web\UserDashboardController@a
 Route::get('/register', 'App\Http\Controllers\Web\UserDashboardController@register')->name('auth.web.register');
 Route::post('/store', 'App\Http\Controllers\Web\UserDashboardController@store')->name('auth.web.store');
 
+Route::group(['middleware' => 'auth:web'], function () {
+    
+});
+
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/users', 'App\Http\Controllers\Api\UserController@collection');
     Route::get('/user/{id}', 'App\Http\Controllers\Api\UserController@details');
